@@ -30,5 +30,7 @@ namespace Laboratorium_z_PO_Zestaw_02
             Console.WriteLine("Nazwisko: {0}", Nazwisko);
             Console.WriteLine("Data urodzenia: {0}", DataUrodzenia);
         }
+
+        
     }
 }

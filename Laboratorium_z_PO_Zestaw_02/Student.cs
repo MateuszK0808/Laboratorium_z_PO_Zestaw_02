@@ -11,6 +11,7 @@ namespace Laboratorium_z_PO_Zestaw_02
         private int rok;
         private int grupa;
         private int nrIndexu;
+        private List<Ocena> oceny = new List<Ocena>();
 
         public Student(
             string imie_,
@@ -36,6 +37,25 @@ namespace Laboratorium_z_PO_Zestaw_02
             Console.WriteLine("Rok: " + Rok);
             Console.WriteLine("Grupa: " + Grupa);
             Console.WriteLine("Numer indexu: " + NrIndexu);
+            Console.WriteLine(" ");
+            WypiszOceny();
         }
+
+        public void DodajOcene(string nazwaPrzedmiotu, string data, double wartosc) => oceny.Add(new Ocena(nazwaPrzedmiotu, data, wartosc));
+
+        public void WypiszOceny() => oceny.ForEach(o => o.WypiszInfo());
+
+        public void WypiszOceny(string nazwaPrzedmiotu) {
+            oceny.ForEach(o =>
+            {
+                if (o.NazwaPrzedmiotu == nazwaPrzedmiotu) o.WypiszInfo();
+            });
+        }
+        public void UsunOcene(string nazwaPrzedmiotu, string data, double wartosc) =>
+            oceny.RemoveAll(o => o.NazwaPrzedmiotu == nazwaPrzedmiotu && o.Data == data && o.Wartosc == wartosc);
+
+        public void UsunOceny() => oceny.Clear();
+
+        public void UsunOceny(string nazwaPrzedmiotu) => oceny.RemoveAll(o => o.NazwaPrzedmiotu == nazwaPrzedmiotu);
     }
 }

@@ -34,7 +34,7 @@ namespace Laboratorium_z_PO_Zestaw_02
             Console.WriteLine("Liczba goli: {0}", liczbaGoli);
         }
 
-        public void StrzelGola()
+        public virtual void StrzelGola()
         {
             liczbaGoli++;
         }
